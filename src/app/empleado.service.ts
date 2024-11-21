@@ -12,27 +12,26 @@ export class EmpleadoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // Este método nos sirve para obtener los empleados
+  //este metodo nos sirve para obtener los empleados
   obtenerListaDeEmpleados(): Observable<Empleado[]> {
     return this.httpClient.get<Empleado[]>(`${this.baseURL}`);
   }
 
-  // Este método nos sirve para registrar un empleado
+  //este metodo nos sirve para registrar un empleado
   registrarEmpleado(empleado: Empleado): Observable<Object> {
     return this.httpClient.post(`${this.baseURL}`, empleado);
   }
 
-  // Este método sirve para actualizar el empleado
+  //este metodo sirve para actualizar el empleado
   actualizarEmpleado(id: number, empleado: Empleado): Observable<Object> {
     return this.httpClient.put(`${this.baseURL}/${id}`, empleado);
   }
 
-  // Este método sirve para obtener o buscar un empleado
+  //este metodo sirve para obtener o buscar un empleado
   obtenerEmpleadoPorId(id: number): Observable<Empleado> {
     return this.httpClient.get<Empleado>(`${this.baseURL}/${id}`);
   }
 
-  // Este método sirve para eliminar un empleado
   eliminarEmpleado(id: number): Observable<Object> {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
